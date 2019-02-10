@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "enviornmentSuffix": {
-      "value": "-aat"
+      "value": "aat"
     },    
     "keyVault-name": {
         "value": "demo-devops-aks-arm-aat"
