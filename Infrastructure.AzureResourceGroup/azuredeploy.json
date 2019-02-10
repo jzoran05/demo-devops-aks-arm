@@ -422,7 +422,7 @@
       "type": "Microsoft.Resources/deployments",
       "name": "AciSubnetRoleAssignmentDeployment-20190210125857",
       "apiVersion": "2017-05-10",
-      "resourceGroup": "[Concat('demo-devops-aks-arm', pvariables('resourceSuffix') )]",
+      "resourceGroup": "[Concat('demo-devops-aks-arm', variables('resourceSuffix') )]",
       "subscriptionId": "3aba1271-ca5f-49e8-9229-2214ec0ac30c",
       "properties": {
           "mode": "Incremental",
