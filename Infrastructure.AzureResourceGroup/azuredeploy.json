@@ -281,7 +281,7 @@
                   "vmSize": "[parameters('aks-agentVMSize')]",
                   "osType": "[parameters('aks-osType')]",
                   "storageProfile": "ManagedDisks",
-                  "vnetSubnetID": "[variables('vnetSubnetId')]"
+                  "vnetSubnetID": "[parameters('aks-vnetSubnetID')]"
               }
           ],
           "servicePrincipalProfile": {

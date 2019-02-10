@@ -111,7 +111,8 @@ else {
                                        -TemplateParameterFile $TemplateParametersFile `
                                        @OptionalParameters `
                                        -Force -Verbose `
-                                       -ErrorVariable ErrorMessages
+                                       -ErrorVariable ErrorMessages `
+                                       -DeploymentDebugLogLevel All
     if ($ErrorMessages) {
         Write-Output '', 'Template deployment returned the following errors:', @(@($ErrorMessages) | ForEach-Object { $_.Exception.Message.TrimEnd("`r`n") })
     }
