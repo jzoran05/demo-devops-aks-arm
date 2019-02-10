@@ -232,9 +232,13 @@
           "description": "Enables the Linux ACI Connector."
       }
   }
-},
+}, 
 "variables": {
-  "resourceSuffix": "[Concat('-', parameters('environmentLabel'))]"
+  "aks-vnetName": "[Concat('demo-devops-aks-arm-vnet', variables('resourceSuffix') )]",
+  "resourceSuffix": "[Concat('-', parameters('environmentLabel'))]",
+  "resourceName": "[Concat( parameters('aks-resourceName'), '-', parameters('environmentLabel') )]",
+  "vnetSubnetId-temp": "[replace( parameters('aks-vnetSubnetID'), '__resource-group-name__', variables('resourceName') ) ]",
+  "vnetSubnetId": "[replace( variables('vnetSubnetId-temp'), '__vnet-name__', variables('aks-vnetName') ) ]"
 },
 "resources": [
     {
@@ -277,7 +281,7 @@
                   "vmSize": "[parameters('aks-agentVMSize')]",
                   "osType": "[parameters('aks-osType')]",
                   "storageProfile": "ManagedDisks",
-                  "vnetSubnetID": "[parameters('aks-vnetSubnetID')]"
+                  "vnetSubnetID": "[variables('vnetSubnetId')]"
               }
           ],
           "servicePrincipalProfile": {
@@ -348,7 +352,7 @@
   },
   {
       "apiVersion": "2018-08-01",
-      "name": "[Concat('demo-devops-aks-arm-vnet', variables('resourceSuffix') )]",
+      "name": "[variables('aks-vnetName')]",
       "type": "Microsoft.Network/virtualNetworks",
       "location": "westeurope",
       "properties": {

@@ -6,7 +6,7 @@
       "value": "aat"
     },    
     "keyVault-name": {
-        "value": "demo-devops-aks"
+        "value": "demo-devops-aks-arm"
     },
     "keyVault-location": {
         "value": "westeurope"
@@ -82,7 +82,7 @@
         }
     },
     "aks-resourceName": {
-      "value": "csucsa-devops-aks"
+      "value": "csucsa-devops-aks-arm"
   },
   "aks-location": {
       "value": "westeurope"
@@ -109,7 +109,7 @@
       "value": true
   },
   "aks-vnetSubnetID": {
-      "value": "/subscriptions/3aba1271-ca5f-49e8-9229-2214ec0ac30c/resourceGroups/demo-devops-aks-arm/providers/Microsoft.Network/virtualNetworks/demo-devops-aks-arm-vnet/subnets/default"
+      "value": "/subscriptions/3aba1271-ca5f-49e8-9229-2214ec0ac30c/resourceGroups/__resource-group-name__/providers/Microsoft.Network/virtualNetworks/__vnet-name__/subnets/default"
   },
   "aks-serviceCidr": {
       "value": "10.0.0.0/16"
