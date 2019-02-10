@@ -264,7 +264,7 @@
       ],
       "type": "Microsoft.ContainerService/managedClusters",
       "location": "[parameters('aks-location')]",
-      "name": "Concat(parameters('aks-resourceName'), variables('resourceSuffix') )]",
+      "name": "[Concat(parameters('aks-resourceName'), variables('resourceSuffix') )]",
       "properties": {
           "kubernetesVersion": "[parameters('aks-kubernetesVersion')]",
           "enableRBAC": "[parameters('aks-enableRBAC')]",
