@@ -6,7 +6,7 @@
       "value": "aat"
     },    
     "keyVault-name": {
-        "value": "demo-devops-aks-arm"
+        "value": "demo-devops-aks"
     },
     "keyVault-location": {
         "value": "westeurope"
@@ -82,13 +82,13 @@
         }
     },
     "aks-resourceName": {
-      "value": "csucsa-devops-aks-arm-aat"
+      "value": "csucsa-devops-aks"
   },
   "aks-location": {
       "value": "westeurope"
   },
   "aks-dnsPrefix": {
-      "value": "csucsadevopsaksarmaat"
+      "value": "csucsadevopsaksarm"
   },
   "aks-agentCount": {
       "value": 1
@@ -138,14 +138,11 @@
   "aks-aciConnectorLinuxEnabled": {
       "value": true
   },
-    "environmentSuffix": {
-      "value": "-aat"
-    },
-    "aks-servicePrincipalClientId": {
+  "aks-servicePrincipalClientId": {
       "value": "ea5f3b65-d30c-4a7b-833d-991b8e668803"
-    },
-    "aks-servicePrincipalClientSecret": {
+   },
+   "aks-servicePrincipalClientSecret": {
       "value": "PC1QiCUG7+6WqO5tVBg+lcT3Y8udd8MSH6EkzKvbiQg="
-    }    
+   }    
 }
 }
