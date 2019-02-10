@@ -6,7 +6,7 @@
       "value": "aat"
     },    
     "keyVault-name": {
-        "value": "demo-devops-aks-arm-aat"
+        "value": "demo-devops-aks-arm"
     },
     "keyVault-location": {
         "value": "westeurope"
