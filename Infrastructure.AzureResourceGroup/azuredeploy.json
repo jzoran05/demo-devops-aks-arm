@@ -348,6 +348,9 @@
               ]
           }
       },
+      "debugSetting": {
+        "detailLevel": "requestContent, responseContent"
+     },      
       "dependsOn": []
   },
   {
@@ -389,7 +392,10 @@
               ]
           }
       },
-      "tags": {}
+      "tags": {},
+      "debugSetting": {
+        "detailLevel": "requestContent, responseContent"
+     }      
   },
   {
       "type": "Microsoft.Resources/deployments",
@@ -416,7 +422,10 @@
                       }
                   }
               ]
-          }
+          },
+          "debugSetting": {
+            "detailLevel": "requestContent, responseContent"
+         }          
       },
       "dependsOn": [
           "[Concat('Microsoft.Network/virtualNetworks/demo-devops-aks-arm-vnet', variables('resourceSuffix') )]"
