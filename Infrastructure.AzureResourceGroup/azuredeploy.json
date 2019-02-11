@@ -347,10 +347,7 @@
                   }
               ]
           }
-      },
-      "debugSetting": {
-        "detailLevel": "requestContent, responseContent"
-     },      
+      },    
       "dependsOn": []
   },
   {
