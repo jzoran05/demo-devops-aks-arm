@@ -5,50 +5,6 @@
     "environmentLabel": {
       "type": "string"
     },    
-    "keyVault-name": {
-        "type": "string"
-    },
-    "keyVault-location": {
-        "type": "string"
-    },
-    "keyVault-sku": {
-        "type": "string",
-        "defaultValue": "Standard",
-        "allowedValues": [
-            "Standard",
-            "standard",
-            "Premium",
-            "premium"
-        ],
-        "metadata": {
-            "description": "SKU for the vault"
-        }
-    },
-    "keyVault-accessPolicies": {
-        "type": "array",
-        "defaultValue": [],
-        "metadata": {
-            "description": "The access policies defined for this vault."
-        }
-    },
-    "keyVault-tenant": {
-        "type": "string"
-    },
-    "keyVault-enabledForDeployment": {
-        "type": "bool"
-    },
-    "keyVault-enabledForTemplateDeployment": {
-        "type": "bool"
-    },
-    "keyVault-enabledForDiskEncryption": {
-        "type": "bool"
-    },
-    "keyVault-networkAcls": {
-        "type": "object",
-        "metadata": {
-            "description": "The network firewall defined for this vault."
-        }
-    },
     "aks-resourceName": {
       "type": "string",
       "metadata": {
@@ -241,24 +197,6 @@
   "vnetSubnetId": "[replace( variables('vnetSubnetId-temp'), '__vnet-name__', variables('aks-vnetName') ) ]"
 },
 "resources": [
-    {
-        "apiVersion": "2016-10-01",
-        "name": "[Concat(parameters('keyVault-name'), variables('resourceSuffix'))]",
-        "location": "[parameters('keyVault-location')]",
-        "type": "Microsoft.KeyVault/vaults",
-        "properties": {
-            "enabledForDeployment": "[parameters('keyVault-enabledForDeployment')]",
-            "enabledForTemplateDeployment": "[parameters('keyVault-enabledForTemplateDeployment')]",
-            "enabledForDiskEncryption": "[parameters('keyVault-enabledForDiskEncryption')]",
-            "accessPolicies": "[parameters('keyVault-accessPolicies')]",
-            "tenantId": "[parameters('keyVault-tenant')]",
-            "sku": {
-                "name": "[parameters('keyVault-sku')]",
-                "family": "A"
-            },
-            "networkAcls": "[parameters('keyVault-networkAcls')]"
-        }
-    },
     {
       "apiVersion": "2018-03-31",
       "dependsOn": [
