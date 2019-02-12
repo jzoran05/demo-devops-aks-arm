@@ -200,9 +200,7 @@
     {
       "apiVersion": "2018-03-31",
       "dependsOn": [
-          "[Concat('Microsoft.Network/virtualNetworks/demo-devops-aks-arm-vnet', variables('resourceSuffix'))]",
-          "[concat('Microsoft.Resources/deployments/', 'ClusterSubnetRoleAssignmentDeployment-20190210125857')]",
-          "[concat('Microsoft.Resources/deployments/', 'AciSubnetRoleAssignmentDeployment-20190210125857')]"
+          "[Concat('Microsoft.Network/virtualNetworks/demo-devops-aks-arm-vnet', variables('resourceSuffix'))]"
       ],
       "type": "Microsoft.ContainerService/managedClusters",
       "location": "[parameters('aks-location')]",
@@ -328,68 +326,6 @@
           }
       },
       "tags": {} 
-  },
-  {
-      "type": "Microsoft.Resources/deployments",
-      "name": "ClusterSubnetRoleAssignmentDeployment-20190210125857",
-      "apiVersion": "2017-05-10",
-      "resourceGroup": "[Concat('demo-devops-aks-arm', variables('resourceSuffix') )]",
-      "subscriptionId": "3aba1271-ca5f-49e8-9229-2214ec0ac30c",
-      "properties": {
-          "mode": "Incremental",
-          "template": {
-              "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-              "contentVersion": "1.0.0.0",
-              "parameters": {},
-              "variables": {},
-              "resources": [
-                  {
-                      "type": "Microsoft.Network/virtualNetworks/subnets/providers/roleAssignments",
-                      "apiVersion": "2017-05-01",
-                      "name": "[Concat('demo-devops-aks-arm-vnet', variables('resourceSuffix'), '/default/Microsoft.Authorization/06b0a456-4bbf-42f4-9b2a-50eb535f0a3a')]",
-                      "properties": {
-                          "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '4d97b98b-1d4f-4787-a291-c67834d212e7')]",
-                          "principalId": "[parameters('aks-principalId')]",
-                          "scope": "[Concat('/subscriptions/3aba1271-ca5f-49e8-9229-2214ec0ac30c/resourceGroups/demo-devops-aks-arm', variables('resourceSuffix'), '/providers/Microsoft.Network/virtualNetworks/demo-devops-aks-arm-vnet', variables('resourceSuffix'), '/subnets/default')]"
-                      }
-                  }
-              ]
-          }          
-      },
-      "dependsOn": [
-          "[Concat('Microsoft.Network/virtualNetworks/demo-devops-aks-arm-vnet', variables('resourceSuffix') )]"
-      ]
-  },
-  {
-      "type": "Microsoft.Resources/deployments",
-      "name": "AciSubnetRoleAssignmentDeployment-20190210125857",
-      "apiVersion": "2017-05-10",
-      "resourceGroup": "[Concat('demo-devops-aks-arm', variables('resourceSuffix') )]",
-      "subscriptionId": "3aba1271-ca5f-49e8-9229-2214ec0ac30c",
-      "properties": {
-          "mode": "Incremental",
-          "template": {
-              "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-              "contentVersion": "1.0.0.0",
-              "parameters": {},
-              "variables": {},
-              "resources": [
-                  {
-                      "type": "Microsoft.Network/virtualNetworks/subnets/providers/roleAssignments",
-                      "apiVersion": "2017-05-01",
-                      "name": "[Concat('demo-devops-aks-arm-vnet', variables('resourceSuffix'), '/virtual-node-aci/Microsoft.Authorization/ba1950cb-558a-4b55-b593-83fe8b47ceb1')]",
-                      "properties": {
-                          "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '4d97b98b-1d4f-4787-a291-c67834d212e7')]",
-                          "principalId": "[parameters('aks-principalId')]",
-                          "scope": "[Concat('/subscriptions/3aba1271-ca5f-49e8-9229-2214ec0ac30c/resourceGroups/demo-devops-aks-arm', variables('resourceSuffix'), '/providers/Microsoft.Network/virtualNetworks/demo-devops-aks-arm-vnet', variables('resourceSuffix'), '/subnets/virtual-node-aci')]"
-                      }
-                  }
-              ]
-          }
-      },
-      "dependsOn": [
-          "[Concat('Microsoft.Network/virtualNetworks/demo-devops-aks-arm-vnet', variables('resourceSuffix') )]"
-      ]
   }
 ],
 "outputs": {
